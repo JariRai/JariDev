@@ -1,0 +1,137 @@
+<head>
+<title>Danker Memes</title>
+<meta name="description" content="Wow danker memes. Epic." />
+<h1> Memes and Stuff
+</h1>
+
+<style>
+body {
+  background-color: lightblue;
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+#div1 {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+
+</style>
+
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
+</head>
+<body>
+
+<h2>Pick a number</h2>
+
+<p>Please input a number between 1 and 10:</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() 
+{
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+<script>
+function myFunction() 
+{
+  // Get the value of the input field with id="numb"
+  x = document.getElementById("numb").value;
+
+  // If x is Not a Number or less than one or greater than 10
+  if (isNaN(x) || x < 1 || x > 10) {
+    text = "Input not valid";
+  } else {
+    text = "Input OK";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+<img src="https://i.kym-cdn.com/entries/icons/facebook/000/017/759/ae983dd69a1157ab7f7342a6037b38f10d652402_full.jpg" alt="Italian Trulli">
+
+<table style="width:100%">
+  <tr>
+    <th>Ingredient</th>
+    <th>Cost</th> 
+    <th>Quantity</th>
+  </tr>
+  <tr>
+    <td>Coffee</td>
+    <td>5€</td>
+    <td>Alot</td>
+  </tr>
+  <tr>
+    <td>Milk</td>
+    <td>2€</td>
+    <td>Little bit</td>
+  </tr>
+  <tr>
+    <td>Sugar</td>
+    <td>1€</td>
+    <td>A tiny bit</td>
+  </tr>
+</table>
+
+<h2>For coffee you need the following</h2>
+<ul>
+  <li>Coffee</li>
+  <li>Milk</li>
+  <li>Sugar</li>
+</ul>
+
+<p>Drag the meme into the rectangle:</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="https://i.kym-cdn.com/entries/icons/original/000/008/001/Spurdo.jpg" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+<iframe width="1920" height="1080" 
+src="https://www.youtube.com/embed/nsQJ5IJVHVw">
+</iframe>
+
+</body>
